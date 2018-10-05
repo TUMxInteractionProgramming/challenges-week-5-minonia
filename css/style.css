@@ -7,7 +7,21 @@
   * Primary color_text : white
   * Accent color: #CDDC39 (LIME)
   * Accent color_text: black
-  */
+*/
+
+/* Button classes */
+  /* Primary with icon : min-width: 64dp;
+  height: 36
+  padding-left: 12 px;
+  icon 18dp;
+  right: 16 */
+/* shadow:
+  contained button: 2
+  contained button pressed: 8*/
+  /* FAB pressed: 12 */
+  /* FAB resting: 6 */
+
+
 
 /* GLOBAL */
 
@@ -25,6 +39,123 @@ button, strong {
     text-transform: uppercase;
 }
 
+.primary {
+  background-color: #3F51B5 ;
+  color: white;
+}
+
+.accent {
+  background-color: #CDDC39;
+  color: black;
+}
+
+button.primary:hover, button.primary:focus {
+  background-color: #192B8F;
+}
+
+button.accent:hover, button.accent:focus {
+  background-color: #A7B613;
+
+}
+
+/* SHADOWS * credit goes to Scott Rhea on https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations/
+.md-whiteframe-1dp {
+    box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 2px 1px -1px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-2dp {
+    box-shadow:  0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-3dp {
+    box-shadow:0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 3px -2px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-4dp {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-5dp {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-6dp {
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-7dp {
+    box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),
+    0px 7px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 16px 1px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-8dp {
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-9dp {
+    box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),
+    0px 9px 12px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 16px 2px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-10dp {
+    box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+    0px 10px 14px 1px rgba(0, 0, 0, 0.14),
+    0px 4px 18px 3px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-11dp {
+    box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),
+    0px 11px 15px 1px rgba(0, 0, 0, 0.14),
+    0px 4px 20px 3px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-12dp {
+    box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0px 12px 17px 2px rgba(0, 0, 0, 0.14),
+    0px 5px 22px 4px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-13dp {
+    box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0px 13px 19px 2px rgba(0, 0, 0, 0.14),
+    0px 5px 24px 4px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-14dp {
+    box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),
+    0px 14px 21px 2px rgba(0, 0, 0, 0.14),
+    0px 5px 26px 4px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-15dp {
+    box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
+    0px 15px 22px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 28px 5px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-16dp {
+    box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 30px 5px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-17dp {
+    box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),
+    0px 17px 26px 2px rgba(0, 0, 0, 0.14),
+    0px 6px 32px 5px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-18dp {
+    box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),
+    0px 18px 28px 2px rgba(0, 0, 0, 0.14),
+    0px 7px 34px 6px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-19dp {
+    box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),
+    0px 19px 29px 2px rgba(0, 0, 0, 0.14),
+    0px 7px 36px 6px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-20dp {
+    box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+    0px 20px 31px 3px rgba(0, 0, 0, 0.14),
+    0px 8px 38px 7px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-21dp {
+    box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+    0px 21px 33px 3px rgba(0, 0, 0, 0.14),
+    0px 8px 40px 7px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-22dp {
+    box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),
+    0px 22px 35px 3px rgba(0, 0, 0, 0.14),
+    0px 8px 42px 7px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-23dp {
+    box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),
+    0px 23px 36px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 44px 8px rgba(0, 0, 0, 0.12); }
+.md-whiteframe-24dp {
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12); }
+
 /* LAYOUT */
 
 #channels {
@@ -40,6 +171,25 @@ button, strong {
     height: 100%;
     width: 60%;
     left: 40%;
+
+}
+
+/* button similar to http://materialdesignblog.com/creating-a-simple-material-design-action-button-with-css/ */
+#channels:after {
+    content: '+';
+    height: 56px;
+    width: 56px;
+    background-color: #CDDC39;
+    color: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 88px;
+    right: 16px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 56px;
+    /* to be checked */
+    box-shadow: box-shadow: 0 6px 10px 0 #666;
 }
 
 #messages {
@@ -50,7 +200,48 @@ button, strong {
     overflow-y: auto;
 }
 
+/* BUTTONS */
+
+/*shadow for primary buttons */
+
+button {
+  min-width: 64px;
+  height: 36px;
+  font-size: 14px;
+  padding: auto, 16px;
+  background-color: white;
+  margin: 8px;
+  /*border-color none does not work  */
+  border: none;
+  color: black;
+  text-transform: uppercase;
+}
+/* .prim {
+  box-shadow: 6px 6px;
+
+  background-color: #3F51B5;
+;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+} */
+
+/* .shadowprim:hover{
+  box-shadow: 8px 8px;
+} */
+
+
+
+/*shadow for accent buttons*/
+.shadowaccent {
+  box-shadow: 2px 2px;
+}
+
+
+
 /* APP BAR */
+
 
 h1 {
     background-color: #3F51B5;
@@ -157,20 +348,23 @@ li.selected {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 72px;
     display: flex;
+    justify-content: center;
 }
 
-#tab-bar button, #chat-bar button {
-    background-color: white;
+/* chat-bar button removedd */
+#tab-bar button {
     border: none;
-    font-size: 13px;
     width: 33%;
     height: 72px;
-    padding: 16px;
-
+    color: black;
+    margin: 0;
+    /* padding: 16px; */
     /* flexify the buttons by growing them equally */
     flex-grow: 1;
 }
+
 
 #tab-bar button.selected {
     color: #3F51B5;
@@ -186,14 +380,14 @@ li.selected {
 
 /* CHAT BAR */
 
-#chat-bar button {
+/* #chat-bar button {
     /* override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
-    width: auto;
+    /* width: auto;
     flex-grow: 0;
 
     /* #7 #icns #smile adjust fa size */
-    font-size: 24px;
-}
+    /* font-size: 24px; */
+/* } */
 
 #emojis {
     /* emoji menu */
@@ -235,24 +429,31 @@ li.selected {
 .message {
     width: 80%;
     margin-bottom: 8px;
-    margin-left: 2.5%;
+    margin-left: calc(2.5% + 20px);
+    margin-right: calc(17.5% - 20px);
     position: relative;
+
 }
+
+
+
 
 .message h3 {
     /* Message-meta medium-sized text, non-italic */
     font-size: medium;
-
     /* messages distribute metadata content evenly with flexbox */
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    position: relative;
+    box-shadow:  0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
 
 .message h3 a {
     /* What3words link is primary test */
     color: black;
-
     width: 30%;
 }
 
@@ -260,7 +461,6 @@ li.selected {
     /* Larger text, non-italic*/
     font-size: larger;
     font-style: normal;
-
     width: 20%;
     text-align: right;
 }
@@ -268,16 +468,44 @@ li.selected {
 .message p {
     background-color: white;
     padding: 16px;
+    position: relative;
+}
+
+.message:not(.own) p:before {
+  content: "";
+  /* background-color: red; */
+  position: absolute;
+  left: -10px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right:10px solid white;
+}
+
+.own p:after {
+  content: "";
+  /* background-color: red; */
+  position: absolute;
+  right: -10px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left:10px solid white;
 }
 
 .message button {
     /* +5 min. button*/
-    background-color: #CDDC39;
-    color: black;
-    text-transform: uppercase;
-
+    /* background-color: #CDDC39;
+    color: black; */
+    /* text-transform: uppercase; */
     /* right/bottom alignment of button */
     position: absolute;
+    margin: 0px;
+    padding: 0px;
     right: 8px;
     bottom: 8px;
 }

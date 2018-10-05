@@ -54,6 +54,7 @@ function switchChannel(channelObject) {
 function star() {
     // Toggling star
     // #7 replace image with icon
+    // can use toggle two times to reset class
     $('#chat h1 i').toggleClass('fas');
     $('#chat h1 i').toggleClass('far');
 
@@ -140,21 +141,36 @@ function createMessageElement(messageObject) {
         messageObject.createdOn.toLocaleString() +
         '<em>' + expiresIn+ ' min. left</em></h3>' +
         '<p>' + messageObject.text + '</p>' +
-        '<button>+5 min.</button>' +
+        '<button class="accent">+5 min.</button>' +
         '</div>';
+}
+
+// compare functions
+function compareNew(a, b) {
+  return b.createdOn - a.createdOn;
+}
+
+function compareTrending(a, b) {
+  return b.messageCount - a.messageCount;
+}
+
+function compareFavorites(a, b) {
+  return b.starred - a.starred;
 }
 
 
 function listChannels() {
     // #8 channel onload
     //$('#channels ul').append("<li>New Channel</li>")
-
+    for (i = 0; i < channels.length; i++) {
+      $('#channels ul').append(createChannelElement(channels[i]));
+    }
     // #8 five new channels
-    $('#channels ul').append(createChannelElement(yummy));
-    $('#channels ul').append(createChannelElement(sevencontinents));
-    $('#channels ul').append(createChannelElement(killerapp));
-    $('#channels ul').append(createChannelElement(firstpersononmars));
-    $('#channels ul').append(createChannelElement(octoberfest));
+    // $('#channels ul').append(createChannelElement(yummy));
+    // $('#channels ul').append(createChannelElement(sevencontinents));
+    // $('#channels ul').append(createChannelElement(killerapp));
+    // $('#channels ul').append(createChannelElement(firstpersononmars));
+    // $('#channels ul').append(createChannelElement(octoberfest));
 }
 
 /**
