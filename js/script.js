@@ -30,7 +30,7 @@ function switchChannel(channelObject) {
     document.getElementById('channel-name').innerHTML = channelObject.name;
 
     //#7  change the channel location using object property
-    document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/'
+    document.getElementById('channel-location').innerHTML = '&nbsp; by <a href="http://w3w.co/'
         + channelObject.createdBy
         + '" target="_blank"><strong>'
         + channelObject.createdBy
@@ -51,6 +51,18 @@ function switchChannel(channelObject) {
     /* #7 store selected channel in global variable */
     currentChannel = channelObject;
 }
+//  constructor for channelObject
+function channelObj(name,message) {
+    this.name = name;
+    this.createdOn = new Date(); //now
+    this.expiresIn = 1000; // mins * secs * msecs
+    this.starred = false;
+    this.messageCount = 0;
+    this.messages = [];
+    this.messages.push(message);
+}
+
+
 
 /* liking a channel on #click */
 function star() {
@@ -97,8 +109,6 @@ function sortFav(tabId) {
   selectTab(tabId);
 }
 
-
-
 /**
  * toggle (show/hide) the emojis menu
  */
@@ -106,9 +116,48 @@ function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
 }
 
-// FAB action clearly
-function clear() {
-  alert("hi");
+
+function createChannel() {
+  // alert('hi');
+  channelName = $('#newChannelName').val();
+  message = ($('#message').val());
+
+  if (channelName[0] ==="#" && channelName.indexOf(" ") === -1 && channelName.length > 0) {
+    currentChannel = new channelObj(channelName, message);
+    channels.push(new channelObj(channelName, message));
+  }
+
+  abort();
+  switchChannel(currentChannel);
+  message = new Message (currentChannel.messages[0]);
+  $('#messages').append(createMessageElement(message));
+}
+
+// FAB action clear
+function clearMes() {
+  // alert("hi");
+  $('#messages').empty();
+  $('h1:odd').empty();
+  var addChannelElements = '<input type="text" placeholder="Enter a #ChannelName" maxlength="140" id="newChannelName">' + '<button onclick = "abort()"><i class="fas fa-times"></i> Abort</button>'
+  $('h1:odd').append(addChannelElements);
+  var button = '<button onclick="createChannel()" class="accent" id="createChannel">Create</button>'
+  $('#chat-bar button:odd').remove();
+  $('#chat-bar').append(button);
+}
+
+function abort() {
+  $('h1:odd').empty();
+  var content =
+      '<span id="channel-name">#SevenContinents</span>'+
+      '<small id="channel-location">by <strong> cheeses.yard.applies</strong></small>'+
+      <!-- #7 star is now font-awesome -->
+      '<i class="fas fa-star" onclick="star()"></i>';
+  $('h1:odd').append(content);
+  // not working
+  switchChannel(currentChannel);
+  var button = '<button onclick="sendMessage()" class="accent"><i class="fas fa-arrow-right"></i></button>';
+  $('#chat-bar button:odd').remove();
+  $('#chat-bar').append(button);
 }
 
 /**
@@ -122,7 +171,7 @@ function Message(text) {
     this.latitude = currentLocation.latitude;
     this.longitude = currentLocation.longitude;
     // set dates
-    this.createdOn = new Date() //now
+    this.createdOn = new Date(); //now
     this.expiresOn = new Date(Date.now() + 15 * 60 * 1000); // mins * secs * msecs
     // set text
     this.text = text;
