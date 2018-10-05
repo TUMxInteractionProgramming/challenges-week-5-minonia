@@ -24,6 +24,7 @@ var currentLocation = {
  */
 function switchChannel(channelObject) {
     //Log the channel switch
+    // abort();
     console.log("Tuning in to channel", channelObject);
 
     // #7  Write the new channel to the right app bar using object property
@@ -41,13 +42,10 @@ function switchChannel(channelObject) {
 
     /* #7 set class according to object property */
     $('#chat h1 i').addClass(channelObject.starred ? 'fas' : 'far');
-
-
     /* highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
     $('#channels li:contains(' + channelObject.name + ')').addClass('selected');
-
     /* #7 store selected channel in global variable */
     currentChannel = channelObject;
 }
@@ -90,7 +88,7 @@ function selectTab(tabId) {
     $(tabId).addClass('selected');
 }
 
-// sortfunctions from tabs
+// sortfunctions for tab-bar
 function sortNew(tabId) {
   $('#channels ul').empty();
   listChannels("new");
@@ -114,6 +112,9 @@ function sortFav(tabId) {
  */
 function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
+    var emojis = require('emojis-list');
+    $('#emojis').empty();
+    $('#emojis').append(emojis);
 }
 
 
@@ -122,15 +123,17 @@ function createChannel() {
   channelName = $('#newChannelName').val();
   message = ($('#message').val());
 
-  if (channelName[0] ==="#" && channelName.indexOf(" ") === -1 && channelName.length > 0) {
+  if (channelName[0] ==="#" && channelName.indexOf(" ") === -1 && channelName.length > 0 && message.length > 0) {
     currentChannel = new channelObj(channelName, message);
     channels.push(new channelObj(channelName, message));
-  }
 
-  abort();
-  switchChannel(currentChannel);
-  message = new Message (currentChannel.messages[0]);
-  $('#messages').append(createMessageElement(message));
+    abort();
+    switchChannel(currentChannel);
+    currentChannel.messageCount = +1;
+    message = new Message (currentChannel.messages[0]);
+    $('#messages').append(createMessageElement(message));
+    $('#message').val('');
+}
 }
 
 // FAB action clear
@@ -184,26 +187,23 @@ function sendMessage() {
     //var message = new Message("Hello chatter");
 
     // #8 let's now use the real message #input
-    var message = new Message($('#message').val());
-    console.log("New message:", message);
-    if ((message.text) === "") {
 
-    }
-    else {
+    if ($('#message').val() !== "") {
+      var message = new Message($('#message').val());
+      console.log("New message:", message);
     // #8 convenient message append with jQuery:
-    $('#messages').append(createMessageElement(message));
+      $('#messages').append(createMessageElement(message));
 
     // #8 messages will scroll to a certain point if we apply a certain height, in this case the overall scrollHeight of the messages-div that increases with every message;
     // it would also scroll to the bottom when using a very high number (e.g. 1000000000);
-    $('#messages').scrollTop($('#messages').prop('scrollHeight'));
+      $('#messages').scrollTop($('#messages').prop('scrollHeight'));
 
     // #8 clear the message input
-    $('#message').val('');
-
+      $('#message').val('');
     // append message to currentChannel
-    currentChannel.messages.push(message);
+      currentChannel.messages.push(message);
     // count towards total messages
-    currentChannel.messageCount += 1;
+      currentChannel.messageCount += 1;
 }
 }
 /**

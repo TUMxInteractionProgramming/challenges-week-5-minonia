@@ -25,20 +25,21 @@
     <!-- embed external JavaScript file for app interaction -->
     <script src="js/script.js"></script>
 <!--embed emojis list   -->
-    <!-- <script> src="js/emojis-list.js" ></script> -->
-
-
-
+    <script src="emojis-list.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script>
+       var emojis = require('emojis-list')
+       console.log(emojis[0])
+   </script> -->
 </head>
 
 <!-- #8 #channel #onload all channels when the body has loaded -->
 <body onload="listChannels('new')">
 
 <!-- channel area -->
-<div id="channels" class=".md-whiteframe-16dp">
+<div id="channels" class="md-whiteframe-16dp">
 
     <!-- APP BAR for APP TITLE -->
-    <h1 id="left-app-bar" class=".md-whiteframe-4dp">
+    <h1 id="left-app-bar" class="md-whiteframe-4dp">
         <img src="http://ip.lfe.mw.tum.de/sections/moocus.png" alt="Moocus, the chatty duck!" style="height: 56px;">
         chatter|app
     </h1>
@@ -98,7 +99,7 @@
     <span id ="fab" class="btn-floating"  onclick= "clearMes()"><i class="fas fa-plus"></i></span>
 
     <!-- TAB BAR -->
-    <div id="tab-bar">
+    <div id="tab-bar" class="md-whiteframe-8dp">
         <button class="selected" id="tab-new" onclick = "sortNew('#tab-new')">
             <!-- #7  replacing icons -->
             <i class="far fa-lightbulb"></i>
@@ -120,7 +121,7 @@
 <div id="chat">
 
     <!-- APP BAR for CHANNEL TITLE -->
-    <h1 class=".md-whiteframe-4dp">
+    <h1 class="md-whiteframe-4dp">
         <span id="channel-name">#SevenContinents</span>
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #7 star is now font-awesome -->
@@ -177,12 +178,12 @@
     </div>
 
     <!-- ChAT BAR -->
-    <div id="chat-bar" class=".md-whiteframe-4dp">
+    <div id="chat-bar" class="md-whiteframe-8dp">
         <button id="emojis-button" onclick="toggleEmojis()" class="primary">
             <!-- #7 replacing icons -->
             <i class="far fa-smile"></i>
         </button>
-        <div id="emojis" class=".md-whiteframe-8dp">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+        <div id="emojis" class="md-whiteframe-8dp">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
         <!-- #8 create a new input element which accepts text and has a prefill as well as a character limit.
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">

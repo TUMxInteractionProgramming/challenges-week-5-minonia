@@ -9,7 +9,7 @@
   * Accent color_text: black
 */
 
-/* Button classes */
+/* Buttons Material design */
   /* Primary with icon : min-width: 64dp;
   height: 36
   padding-left: 12 px;
@@ -20,7 +20,11 @@
   contained button pressed: 8*/
   /* FAB pressed: 12 */
   /* FAB resting: 6 */
+  /* Button font-size 14px medium uppercase */
+  /* min-width: 64px; */
+  /*for all 4 dp corner radius  */
 
+/* shadows */
 
 
 /* GLOBAL */
@@ -33,6 +37,20 @@
 
 body {
     background-color: #F5F5F5;
+}
+
+button {
+  min-width: 64px;
+  height: 36px;
+  font-size: 14px;
+  padding: auto, 16px;
+  background-color: white;
+  margin: 8px;
+  /*border-color none does not work  */
+  border-radius: 4px;
+  border: none;
+  color: black;
+  text-transform: uppercase;
 }
 
 button, strong {
@@ -58,7 +76,7 @@ button.accent:hover, button.accent:focus {
 
 }
 
-/* SHADOWS * credit goes to Scott Rhea on https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations/
+/* SHADOWS * credit goes to Scott Rhea on https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations/ */
 .md-whiteframe-1dp {
     box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14),
@@ -174,24 +192,29 @@ button.accent:hover, button.accent:focus {
 
 }
 
-/* button similar to http://materialdesignblog.com/creating-a-simple-material-design-action-button-with-css/ */
+/* Floating action button resting 6dp */
 #fab {
     content: '+';
-    height: 56px;
-    width: 56px;
+    height: 24px;
+    width: 24px;
     background-color: #CDDC39;
     color: black;
     border-radius: 50%;
     position: absolute;
+    padding: 16px;
     bottom: 88px;
     right: 16px;
+    /* padding: 16px; */
     font-size: 24px;
     text-align: center;
-    line-height: 56px;
+    line-height: 24px;
     /* to be checked */
-    box-shadow: box-shadow: 0 6px 10px 0 #666;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);;
 }
-#fab {
+
+#fab:focus {
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
   0px 12px 17px 2px rgba(0, 0, 0, 0.14),
   0px 5px 22px 4px rgba(0, 0, 0, 0.12);
@@ -207,20 +230,8 @@ button.accent:hover, button.accent:focus {
 
 /* BUTTONS */
 
-/*shadow for primary buttons */
 
-button {
-  min-width: 64px;
-  height: 36px;
-  font-size: 14px;
-  padding: auto, 16px;
-  background-color: white;
-  margin: 8px;
-  /*border-color none does not work  */
-  border: none;
-  color: black;
-  text-transform: uppercase;
-}
+
 /* .prim {
   box-shadow: 6px 6px;
 
@@ -263,6 +274,9 @@ h1 {
 
     /* MOOCUS image alignment */
     position: relative; /* we need this, so that the image's absolute position is relative to the app bar */
+    z-index: 10;
+
+    /* box-shadow: 10px 15px black; */
 }
 
 h1#left-app-bar {
@@ -292,9 +306,9 @@ h1 strong {
   text-transform: uppercase;
 }
 
-h1 small {
+/* h1 small {
   font-size: 80%;
-}
+} */
 
 h1 a {
   text-decoration: none;
@@ -394,7 +408,7 @@ li.selected {
     justify-content: center;
 }
 
-/* chat-bar button removedd */
+/* chat-bar button removed */
 #tab-bar button {
     border: none;
     width: 33%;
@@ -405,6 +419,8 @@ li.selected {
     /* flexify the buttons by growing them equally */
     flex-grow: 1;
 }
+
+
 
 
 #tab-bar button.selected {
@@ -421,21 +437,15 @@ li.selected {
 
 /* CHAT BAR */
 
-/* #chat-bar button {
-    /* override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
-    /* width: auto;
-    flex-grow: 0;
+#chat-bar button {
 
-    /* #7 #icns #smile adjust fa size */
-    /* font-size: 24px; */
-/* } */
+}
 
 #emojis {
     /* emoji menu */
     /* colors and borders */
     background-color:white;
-    border: 1px solid black;
-
+    /* border: 1px solid black; */
     /* size & alignment */
     position: absolute;
     box-sizing: border-box;
@@ -475,9 +485,6 @@ li.selected {
     position: relative;
 
 }
-
-
-
 
 .message h3 {
     /* Message-meta medium-sized text, non-italic */
