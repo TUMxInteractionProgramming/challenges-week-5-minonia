@@ -25,14 +25,14 @@
     <!-- embed external JavaScript file for app interaction -->
     <script src="js/script.js"></script>
 <!--embed emojis list   -->
-    <script> src="js/emojis-list.js" ></script>
+    <!-- <script> src="js/emojis-list.js" ></script> -->
 
 
 
 </head>
 
 <!-- #8 #channel #onload all channels when the body has loaded -->
-<body onload="listChannels()">
+<body onload="listChannels('new')">
 
 <!-- channel area -->
 <div id="channels" class=".md-whiteframe-16dp">
@@ -95,6 +95,7 @@
         </li> -->
 
     </ul>
+    <span id ="fab" class="btn-floating"  onclick= "clear()"><i class="fas fa-plus"></i></span>
 
     <!-- TAB BAR -->
     <div id="tab-bar">
@@ -128,7 +129,7 @@
 
     <div id="messages">
 
-        <div class="message own">
+        <!-- <div class="message own">
             <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
                 Wed, June 20th, 13:37 <em>15 min. left</em></h3>
             <p>What's the place you folks call home?</p>
@@ -171,7 +172,7 @@
                 Wed, June 20th, 04:08 <em>15 min. left</em></h3>
             <p>北京</p>
             <button class="accent">+5 min.</button>
-        </div>
+        </div> -->
 
     </div>
 

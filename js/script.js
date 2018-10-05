@@ -5,8 +5,10 @@ console.log("App is alive");
 /** #7 Create global variable */
 var currentChannel;
 
+
+
 /** #7 We simply initialize it with the channel selected by default - sevencontinents */
-currentChannel = sevencontinents;
+currentChannel = channels[1];
 
 /** Store my current (sender) location
  */
@@ -76,11 +78,37 @@ function selectTab(tabId) {
     $(tabId).addClass('selected');
 }
 
+// sortfunctions from tabs
+function sortNew(tabId) {
+  $('#channels ul').empty();
+  listChannels("new");
+  selectTab(tabId);
+}
+
+function sortTrending(tabId) {
+  $('#channels ul').empty();
+  listChannels("trending");
+  selectTab(tabId);
+}
+
+function sortFav(tabId) {
+  $('#channels ul').empty();
+  listChannels("fav");
+  selectTab(tabId);
+}
+
+
+
 /**
  * toggle (show/hide) the emojis menu
  */
 function toggleEmojis() {
     $('#emojis').toggle(); // #toggle
+}
+
+// FAB action clearly
+function clear() {
+  alert("hi");
 }
 
 /**
@@ -109,7 +137,10 @@ function sendMessage() {
     // #8 let's now use the real message #input
     var message = new Message($('#message').val());
     console.log("New message:", message);
+    if ((message.text) === "") {
 
+    }
+    else {
     // #8 convenient message append with jQuery:
     $('#messages').append(createMessageElement(message));
 
@@ -119,8 +150,13 @@ function sendMessage() {
 
     // #8 clear the message input
     $('#message').val('');
-}
 
+    // append message to currentChannel
+    currentChannel.messages.push(message);
+    // count towards total messages
+    currentChannel.messageCount += 1;
+}
+}
 /**
  * #8 This function makes an html #element out of message objects' #properties.
  * @param messageObject a chat message object
@@ -159,9 +195,16 @@ function compareFavorites(a, b) {
 }
 
 
-function listChannels() {
+function listChannels(i) {
     // #8 channel onload
     //$('#channels ul').append("<li>New Channel</li>")
+    if (i == "new") {
+      channels.sort(compareNew);
+    } else if (i =="trending"){
+      channels.sort(compareTrending);
+    } else if (i == "fav") {
+      channels.sort(compareFavorites);
+    }
     for (i = 0; i < channels.length; i++) {
       $('#channels ul').append(createChannelElement(channels[i]));
     }
