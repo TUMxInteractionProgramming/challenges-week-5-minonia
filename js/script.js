@@ -50,7 +50,7 @@ function switchChannel(channelObject) {
     currentChannel = channelObject;
 }
 //  constructor for channelObject
-function channelObj(name,message) {
+function ChannelObj(name,message) {
     this.name = name;
     this.createdOn = new Date(); //now
     this.expiresIn = 1000; // mins * secs * msecs
@@ -124,8 +124,8 @@ function createChannel() {
   message = ($('#message').val());
 
   if (channelName[0] ==="#" && channelName.indexOf(" ") === -1 && channelName.length > 0 && message.length > 0) {
-    currentChannel = new channelObj(channelName, message);
-    channels.push(new channelObj(channelName, message));
+    currentChannel = new ChannelObj(channelName, message);
+    channels.push(new ChannelObj(channelName, message));
 
     abort();
     switchChannel(currentChannel);

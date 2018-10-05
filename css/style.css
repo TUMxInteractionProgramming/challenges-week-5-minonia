@@ -43,7 +43,8 @@ button {
   min-width: 64px;
   height: 36px;
   font-size: 14px;
-  padding: auto, 16px;
+  padding-left: 16px;
+  padding-right: 16px;
   background-color: white;
   margin: 8px;
   /*border-color none does not work  */
@@ -317,8 +318,12 @@ h1 a {
 h1 input {
   display: inline-block;
   min-width: 80%;
-  padding: 10px auto;
-  font-size: 24px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  font-size: 18px;
+  padding: 3px;
+  border-radius: 4px;
+  border: none;
 }
 
 h1 button i {
@@ -331,7 +336,7 @@ h1 button i {
 h1 button {
   position: absolute;
   right: 16px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   height: 64px;
   background-color: inherit;
   color: inherit;
@@ -406,6 +411,7 @@ li.selected {
     height: 72px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* chat-bar button removed */
